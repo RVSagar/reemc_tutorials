@@ -58,6 +58,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/imgcodecs/legacy/constants_c.h>
 
 /**
  * @brief callback callback function when a pair of synchronized image and person detections
@@ -70,7 +71,7 @@ void callback(const sensor_msgs::CompressedImageConstPtr& imageMsg,
 {
   // Get an OpenCV image from the image message
   cv::Mat img;
-  img = cv::imdecode(cv::Mat(imageMsg->data), IMREAD_UNCHANGED);
+  img = cv::imdecode(cv::Mat(imageMsg->data), CV_LOAD_IMAGE_UNCHANGED);
 
   // Paint every detection on the image
   for (unsigned int i = 0; i < detectionsMsg->detections.size(); ++i)
