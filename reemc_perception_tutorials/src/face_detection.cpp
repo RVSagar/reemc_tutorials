@@ -70,7 +70,7 @@ void callback(const sensor_msgs::CompressedImageConstPtr& imageMsg,
 {
   // Get an OpenCV image from the image message
   cv::Mat img;
-  img = cv::imdecode(cv::Mat(imageMsg->data), CV_LOAD_IMAGE_UNCHANGED);
+  img = cv::imdecode(cv::Mat(imageMsg->data), IMREAD_UNCHANGED);
 
   // Paint every detection on the image
   for (unsigned int i = 0; i < detectionsMsg->faces.size(); ++i)

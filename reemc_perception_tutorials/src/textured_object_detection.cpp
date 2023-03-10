@@ -68,7 +68,7 @@ void callback(const pal_detection_msgs::TexturedObjectDetectionConstPtr& detecti
 {  
   // Get an OpenCV image from the compressed image included in the message
   cv::Mat img;
-  img = cv::imdecode(cv::Mat(detectionMsg->img.data), CV_LOAD_IMAGE_UNCHANGED);
+  img = cv::imdecode(cv::Mat(detectionMsg->img.data), IMREAD_UNCHANGED);
 
   if ( !detectionMsg->roi.x.empty() )
   {
